@@ -20,7 +20,8 @@ const useStyles = makeStyles(theme => ({
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
-    fontFamily: "cursive"
+    fontFamily: "cursive",
+    fontSize: "1.2rem"
   },
   panel: {
     width: "400px"
