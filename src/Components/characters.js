@@ -49,7 +49,7 @@ const useStyles = makeStyles(() => ({
       },
   },
   searchOptions: {
-      width: "400px",
+      width: "350px",
       display: "flex",
       flexDirection: "row",
       margin: "auto",
