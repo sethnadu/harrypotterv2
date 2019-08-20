@@ -19,8 +19,6 @@ const useStyles = makeStyles(theme => ({
 
   },
   heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
     fontSize: "1.2rem",
     fontFamily: "harry potter"
   },

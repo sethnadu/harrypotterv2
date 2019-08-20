@@ -13,8 +13,6 @@ const useStyles = makeStyles(theme => ({
     margin: "auto",
   },
   heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
     fontFamily: "harry potter",
     fontSize: "1.3rem"
   },

@@ -34,24 +34,24 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const Houses = props => {
+const Houses = ({getHouses, isLoading, houses}) => {
   const classes = useStyles();
   useEffect(() => {
-    return props.getHouses();
-  }, [props.getHouses]);
+    return getHouses();
+  }, [getHouses]);
 
 
 
   return (
     <div className={classes.container}>
       <h2 className={classes.title}>Houses</h2>
-      {props.isLoading ? (
+      {isLoading ? (
         <Loader type="BallTriangle" color="#e22121" height={100} width={100} />
       ) : (
         ""
       )}
       <div className={classes.section}>
-     {props.houses.map(house => {
+     {houses.map(house => {
           return  <HousesCard key={house._id} house={house} />
         })}
      

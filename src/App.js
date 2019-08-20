@@ -17,10 +17,11 @@ function App(props) {
 
     <div className="App">
       <Nav />
+      <Route exact path = "/" component = {SortingHat} />
       <Route path="/characters" component = {Characters} />
       <Route path="/spells" component = {Spells} />
       <Route path="/houses" component = {Houses} />
-   
+      
     </div>
  
   );

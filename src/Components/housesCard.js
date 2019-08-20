@@ -51,6 +51,10 @@ const useStyles = makeStyles(theme => ({
   titleInfo: {
     fontFamily: "harry potter",
     fontSize: "1.3rem"
+  },
+  details: {
+      fontSize: "1.2rem",
+      color: "black"
   }
 }));
 
@@ -86,17 +90,16 @@ const HousesCard = ({house}) => {
       <Typography className={classes.info} variant="body2" color="textSecondary" component="div">
       <span>{house.school ? (house.school) : ("Hogwarts School of Witchcraft and Wizardry")}</span>
         <br />
-        <span>Head of House: {house.headOfHouse}</span>
+        <span><span className={classes.details}>Head of House: </span>{house.headOfHouse}</span>
         <br />
-        Colors: {house.colors.map(color => {return (<><span>{color}</span><span>{"  "}</span></>)})}
+        <span className={classes.details}>Ghost: </span>{house.houseGhost}
         <br />
-        Mascot: {house.lion}
+        <span className={classes.details}>Mascot: </span>{house.mascot}
         <br />
-        Ghost: {house.houseGhost}
-        <br />
-        Values: {house.values.map(value => {
+        <span className={classes.details}>Colors: </span>{house.colors.map(color => {return (<div key = {color}><span >{color}</span><span>{"  "}</span></div>)})}
+        <span className={classes.details}>Values: </span>{house.values.map(value => {
             return (
-                <><span key ={value}>{value}</span><span>{" "}</span></>
+                <div key = {value} ><span>{value}</span><span>{" "}</span></div>
             )
         })} 
       </Typography>

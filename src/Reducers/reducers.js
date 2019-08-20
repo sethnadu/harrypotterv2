@@ -101,7 +101,7 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                sortinHat: action.payload,
+                sortingHat: action.payload,
                 error: ""
             };
         case FETCH_SORTING_FAILURE:

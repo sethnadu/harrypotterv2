@@ -65,7 +65,6 @@ export const getHouses = () => {
           key: "$2a$10$BIGaxlF6Fk8YJyoCnLOoqerGil4ZbZCATrYMbvMqhXp3sROZn5TnO"}
              })
         .then(res => {
-            console.log(res.data)
             dispatch({type: FETCH_HOUSES_SUCCESS, payload: res.data})
          })
         .catch(error => {
@@ -83,6 +82,7 @@ export const getSortingHat = () => {
           key: "$2a$10$BIGaxlF6Fk8YJyoCnLOoqerGil4ZbZCATrYMbvMqhXp3sROZn5TnO"}
              })
         .then(res => {
+            console.log(res.data)
             dispatch({type: FETCH_SORTING_SUCCESS, payload: res.data})
          })
         .catch(error => {

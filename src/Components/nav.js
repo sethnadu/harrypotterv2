@@ -43,7 +43,7 @@ function Nav() {
     <div className={classes.root}>
       <AppBar className={classes.backgroundColor} position="static">
         <Toolbar>
-        <Button color="inherit" className={classes.buttonColors}>Home</Button>
+        <Button color="inherit" className={classes.buttonColors}><Link style = {{textDecoration: "none", color: "#f8c20e"}}  to ="/">Home</Link></Button>
         <Button color="inherit" className={classes.buttonColors}><Link style = {{textDecoration: "none", color: "#f8c20e"}}  to ="/characters">Names</Link></Button>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             {/* <MenuIcon /> */}
