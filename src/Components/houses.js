@@ -3,16 +3,18 @@ import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import { makeStyles } from "@material-ui/core/styles";
 import { getHouses } from "../Actions";
-
+import "../App.css"
 
 import HousesCard from "./housesCard.js"
 
 const useStyles = makeStyles(() => ({
   container: {
     margin: "30px",
+    fontFamily: "harry potter"
   },
   title: {
     fontSize: "2.4rem",
+    fontFamily: "harry potter"
   },
   image: {
     maxWidth: "700px",
@@ -21,6 +23,7 @@ const useStyles = makeStyles(() => ({
   },
   subtitle: {
     fontSize: "1.8rem",
+    fontFamily: "harry potter"
   },
   section: {
       margin: "auto",

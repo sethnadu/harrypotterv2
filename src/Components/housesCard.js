@@ -5,10 +5,9 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
+import "../App.css"
 
 
 // import Ravenclaw from "../Assets/ravenclaw.png"
@@ -21,11 +20,14 @@ import Logo from '../Assets/logo.jpg'
 const useStyles = makeStyles(theme => ({
   card: {
     width: "300px",
-    margin: "30px"
+    margin: "30px",
+    fontFamily: "harry potter"
+    
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '56.25%',
+    fontFamily: "harry potter" // 16:9
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -42,19 +44,19 @@ const useStyles = makeStyles(theme => ({
     borderRadius: "25px"
   },
   info: {
-      textAlign: "left"
+      textAlign: "left",
+      fontFamily: "harry potter",
+      fontSize: "1.2rem"
+  },
+  titleInfo: {
+    fontFamily: "harry potter",
+    fontSize: "1.3rem"
   }
 }));
 
 
 const HousesCard = ({house}) => {
     const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  function handleExpandClick() {
-    setExpanded(!expanded);
-  }
-
 //   const imageArray = [{Gryffindor},{Ravenclaw},{Slytherin},{Hufflepuff}];
 
     // imageArray.map(imageeach => {
@@ -63,7 +65,7 @@ const HousesCard = ({house}) => {
 
   return (
     <Card className={classes.card}>
-    <CardHeader
+    <CardHeader className = {classes.titleInfo}
       avatar={
         <img src = {Logo} className={classes.avatar} alt = "harry potter logo" />
       }
@@ -72,12 +74,12 @@ const HousesCard = ({house}) => {
       
         </IconButton>
       }
-      title={house.name}
-      subheader={`Founded by ${house.founder}`}
+      title ={<span className = {classes.titleInfo}> {house.name} </span>}
+      subheader={<span className = {classes.titleInfo}>Founded by {house.founder}</span>}
     />
-    <CardMedia
+    <CardMedia 
       className={classes.media}
-      image= {HogwartsCastle}
+      image={HogwartsCastle}
       title="Paella dish"
     />
     <CardContent>
