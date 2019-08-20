@@ -21,7 +21,6 @@ const useStyles = makeStyles(theme => ({
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
-    fontFamily: "cursive",
     fontSize: "1.2rem",
     fontFamily: "harry potter"
   },
@@ -31,6 +30,18 @@ const useStyles = makeStyles(theme => ({
   text: {
       textAlign: "left",
       fontFamily: "harry potter"
+  },
+  organ1: {
+    color: "#1d4ba0"
+  },
+  organ2: {
+    color: "#59958b"
+  },
+  organ3: {
+    color: "#7d6142"
+  },
+  organ4: {
+    color: "#8c1000"
   }
 }));
 
@@ -58,13 +69,13 @@ const CharacterCard = ({character}) => {
             {character.house ? (<br></br>): (null)}
             <span>{character.bloodStatus ? ("Blood Status: " + character.bloodStatus) : (null)}</span>
             {character.bloodStatus ? (<br></br>): (null)}
-            <span>{character.dumbledoresArmy ? ("In Dumbledore's Army"): (null)}</span>
+            <span className = {classes.organ1}>{character.dumbledoresArmy ? ("In Dumbledore's Army"): (null)}</span>
             {character.dumbledoresArmy ? (<br></br>): (null)}
-            <span>{character.deathEater ? ("Death Eater"): (null)}</span>
+            <span className = {classes.organ2}>{character.deathEater ? ("Death Eater"): (null)}</span>
             {character.deathEater ? (<br></br>): (null)}
-            <span>{character.ministryOfMagic ? ("In The Ministry of Magic"): (null)}</span>
+            <span className = {classes.organ3}>{character.ministryOfMagic ? ("In The Ministry of Magic"): (null)}</span>
             {character.ministryOfMagic ? (<br></br>): (null)}
-            <span>{character.orderOfThePhoenix ? ("In The Order of the Phoenix"): (null)}</span>
+            <span className = {classes.organ4}>{character.orderOfThePhoenix ? ("In The Order of the Phoenix"): (null)}</span>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>

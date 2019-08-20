@@ -147,7 +147,7 @@ const Characters = props => {
         {props.characters.map(character => {
           return (
             search === "orderOfThePhoenix" &&
-            character.g=== true && (
+            character.orderOfThePhoenix=== true && (
               <CharacterCard key={character._id} character={character} />
             )
           );
