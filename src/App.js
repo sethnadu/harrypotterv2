@@ -18,7 +18,7 @@ function App(props) {
     <div className="App">
       <Nav />
       <Route path="/characters" component = {Characters} />
-      {/* <SortingHat sortingHat = {props.sortingHat} getSortingHat = {props.getSortingHat} /> */}
+      <Route path="/spells" component = {Spells} />
    
     </div>
  

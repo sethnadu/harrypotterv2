@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { getCharacters } from "../Actions";
 
 import CharacterCard from "./characterCard.js";
+import OrganizationDropDown from "./Organizationcomponents/organizationdropdown.js"
 
 /////////// Styling ////////////////////////////////////////
 const useStyles = makeStyles(() => ({
@@ -32,64 +33,6 @@ const useStyles = makeStyles(() => ({
     fontSize: "1.2rem",
     fontFamily: "cursive",
   },
-  organization: {
-    width: "200px",
-    display: "flex",
-    flexFlow: "column",
-    fontSize: ".9rem",
-    margin: "auto",
-    alignItems: "center"
-  },
-  options: {
-      cursor: "pointer",
-      color: "#8d0901",
-      "&:hover": {
-        fontSize:"1.2rem",
-        color: "#f8c20e"
-      },
-  },
-  searchOptions: {
-      width: "350px",
-      display: "flex",
-      flexDirection: "row",
-      margin: "auto",
-      justifyContent: "center",
-      borderRadius: "15px",
-      backgroundColor: "seashell"
-
-  },
-  Slytherin: {
-    cursor: "pointer",
-    color: "#005c43",
-    "&:hover": {
-      fontSize:"1.2rem",
-      color: "#aaaaaa"
-    },
-    },
-    Gryffindor: {
-        cursor: "pointer",
-        color: "#8d0901",
-        "&:hover": {
-        fontSize:"1.2rem",
-        color: "#f8c20e"
-        },
-    },
-    Ravenclaw: {
-        cursor: "pointer",
-        color: "#004e7f",
-        "&:hover": {
-        fontSize:"1.2rem",
-        color: "#a67a53"
-        },
-    },
-    Hufflepuff: {
-        cursor: "pointer",
-        color: "black",
-        "&:hover": {
-          fontSize:"1.2rem",
-          color: "#d99230"
-        },
-    },
 
 }));
 
@@ -110,53 +53,17 @@ const Characters = props => {
     console.log(props.characters);
   };
 
-  const handledumbledoresArmy = event => {
-    setSearch("dumbledoresArmy");
-    event.preventDefault();
+  const handleOrganizaton = name => {
+    setSearch(name);
     props.getCharacters();
   };
 
-  const handleDeathEaters = event => {
-    setSearch("deathEaters");
-    event.preventDefault();
+
+  const handleHouse = house => {
+    setSearch(house);
     props.getCharacters();
   };
 
-  const handleOrderOfThePhoenix = event => {
-    setSearch("orderOfThePhoenix");
-    event.preventDefault();
-    props.getCharacters();
-  };
-
-  const handleMinistryOfMagic = event => {
-    setSearch("ministryOfMagic");
-    event.preventDefault();
-    props.getCharacters();
-  };
-
-  const handleGryffindor = event => {
-    setSearch("Gryffindor");
-    event.preventDefault();
-    props.getCharacters();
-  };
-
-  const handleSlytherin = event => {
-    setSearch("Slytherin");
-    event.preventDefault();
-    props.getCharacters();
-  };
-
-  const handleHufflepuff = event => {
-    setSearch("Hufflepuff");
-    event.preventDefault();
-    props.getCharacters();
-  };
-
-  const handleRavenclaw = event => {
-    setSearch("Ravenclaw");
-    event.preventDefault();
-    props.getCharacters();
-  };
 
   return (
     <div className={classes.container}>
@@ -171,23 +78,23 @@ const Characters = props => {
         />
       </form>
       <p>(Case Sensitive)</p>
-      <div className = {classes.searchOptions}>
-          <p onClick></p>
+      <OrganizationDropDown handleHouse = {handleHouse} handleOrganizaton = {handleOrganizaton} getCharacters = {props.getCharacters}/>
+      {/* <div className = {classes.searchOptions}>
         <div className={classes.organization}>
           <p>Sort by Organization</p>
-          <p className={classes.options}  onClick={handleDeathEaters}>Death Eater's</p>{" "}
-          <p className={classes.options}  onClick={handleMinistryOfMagic}>Ministry of the Magic</p>
-          <p className={classes.options}  onClick={handledumbledoresArmy}>Dumbledore's Army</p>{" "}
-          <p className={classes.options}  onClick={handleOrderOfThePhoenix}>Order of the Phoenix</p>{" "}
+          <p className={classes.options}  onClick={() => handleOrganizaton("deathEaters")}>Death Eater's</p>{" "}
+          <p className={classes.options}  onClick={() => handleOrganizaton("ministryOfMagic")}>Ministry of the Magic</p>
+          <p className={classes.options}  onClick={() => handleOrganizaton("dumbledoresArmy")}>Dumbledore's Army</p>{" "}
+          <p className={classes.options}  onClick={() => handleOrganizaton("orderOfThePhoenix")}>Order of the Phoenix</p>{" "}
         </div>
         <div className={classes.organization}>
         <p>Sort by House</p>
-          <p className={classes.Gryffindor}  onClick={handleGryffindor}>Gryffindor</p>{" "}
-          <p className={classes.Hufflepuff}  onClick={handleHufflepuff}>Hufflepuff</p>{" "}
-          <p className={classes.Slytherin}  onClick={handleSlytherin}>Slytherin</p>{" "}
-          <p className={classes.Ravenclaw}  onClick={handleRavenclaw}>Ravenclaw</p>
+          <p className={classes.Gryffindor}  onClick={() => handleHouse("Gryffindor")}>Gryffindor</p>{" "}
+          <p className={classes.Hufflepuff}  onClick={() => handleHouse("Hufflepuff")}>Hufflepuff</p>{" "}
+          <p className={classes.Slytherin}  onClick={() => handleHouse("Slytherin")}>Slytherin</p>{" "}
+          <p className={classes.Ravenclaw}  onClick={() => handleHouse("Ravenclaw")}>Ravenclaw</p>
         </div>
-      </div>
+      </div> */}
       {/* /////////// API LOADER //////////////////////////////////////// */}
       {props.isLoading ? (
         <Loader type="BallTriangle" color="#e22121" height={100} width={100} />
@@ -199,7 +106,7 @@ const Characters = props => {
       <div className={classes.searchContainer}>
         {props.characters.map(character => {
           return (
-            character.name.includes(`${search}`) &&
+            character.name.includes(`${search}`) && 
             search !== "" && (
               <CharacterCard key={character._id} character={character} />
             )
@@ -230,7 +137,7 @@ const Characters = props => {
         {props.characters.map(character => {
           return (
             search === "orderOfThePhoenix" &&
-            character.orderOfThePhoenix === true && (
+            character.g=== true && (
               <CharacterCard key={character._id} character={character} />
             )
           );
