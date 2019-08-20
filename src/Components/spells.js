@@ -43,6 +43,9 @@ const useStyles = makeStyles(() => ({
     width: "100%",
     borderRadius: "10px",
   },
+  subtitle: {
+    fontSize: "1.8rem"
+  }
 }));
 
 const Spells = props => {
@@ -64,7 +67,7 @@ const Spells = props => {
       <h2 className={classes.title}>Spells</h2>
       <img className={classes.image} src = {WandImage} alt ="Ollivanders shop drawing" />
       <form className={classes.form}>
-        <p>Search Spell by Name</p>
+        <p className={classes.subtitle}>Search Spell by Name</p>
         <input
           className={classes.textInput}
           type="text"
@@ -144,7 +147,7 @@ const mapStateToProps = state => {
   return {
     spells: state.spells,
     isLoading: state.isLoading,
-    search: state.search,
+  
   };
 };
 export default connect(

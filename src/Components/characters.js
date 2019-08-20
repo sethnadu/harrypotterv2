@@ -42,6 +42,9 @@ const useStyles = makeStyles(() => ({
     maxWidth: "700px",
     width: "100%",
     borderRadius: "10px",
+  },
+  subtitle: {
+    fontSize: "1.8rem"
   }
 }));
 
@@ -79,7 +82,7 @@ const Characters = props => {
       <h2 className={classes.title}>Harry Potter Characters</h2>
       <img className={classes.image} src ={HarryPotterImage} alt ="Harry Potter Voldemort face off" />
       <form className={classes.form} onSubmit={handleSubmit}>
-        <p>Search Character by Name</p>
+        <p className={classes.subtitle}>Search Character by Name</p>
         <input
           className={classes.textInput}
           type="text"
@@ -89,22 +92,7 @@ const Characters = props => {
       </form>
       <p>(Case Sensitive)</p>
       <OrganizationDropDown handleHouse = {handleHouse} handleOrganizaton = {handleOrganizaton} getCharacters = {props.getCharacters}/>
-      {/* <div className = {classes.searchOptions}>
-        <div className={classes.organization}>
-          <p>Sort by Organization</p>
-          <p className={classes.options}  onClick={() => handleOrganizaton("deathEaters")}>Death Eater's</p>{" "}
-          <p className={classes.options}  onClick={() => handleOrganizaton("ministryOfMagic")}>Ministry of the Magic</p>
-          <p className={classes.options}  onClick={() => handleOrganizaton("dumbledoresArmy")}>Dumbledore's Army</p>{" "}
-          <p className={classes.options}  onClick={() => handleOrganizaton("orderOfThePhoenix")}>Order of the Phoenix</p>{" "}
-        </div>
-        <div className={classes.organization}>
-        <p>Sort by House</p>
-          <p className={classes.Gryffindor}  onClick={() => handleHouse("Gryffindor")}>Gryffindor</p>{" "}
-          <p className={classes.Hufflepuff}  onClick={() => handleHouse("Hufflepuff")}>Hufflepuff</p>{" "}
-          <p className={classes.Slytherin}  onClick={() => handleHouse("Slytherin")}>Slytherin</p>{" "}
-          <p className={classes.Ravenclaw}  onClick={() => handleHouse("Ravenclaw")}>Ravenclaw</p>
-        </div>
-      </div> */}
+
       {/* /////////// API LOADER //////////////////////////////////////// */}
       {props.isLoading ? (
         <Loader type="BallTriangle" color="#e22121" height={100} width={100} />

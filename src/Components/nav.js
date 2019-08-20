@@ -52,7 +52,7 @@ function Nav() {
             <img className = {classes.logo} alt = "Harry Potter Logo" src={HarryPotterLogo} />
           </Typography>
           <Button color="inherit"  className={classes.buttonColors}><Link style = {{textDecoration: "none", color: "#f8c20e"}} to ="/spells">Spells</Link></Button>
-          <Button color="inherit"  className={classes.buttonColors}>Houses</Button>
+          <Button color="inherit"  className={classes.buttonColors}><Link style = {{textDecoration: "none", color: "#f8c20e"}}  to ="/houses">Houses</Link></Button>
         </Toolbar>
       </AppBar>
     </div>

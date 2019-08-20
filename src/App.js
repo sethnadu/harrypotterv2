@@ -19,6 +19,7 @@ function App(props) {
       <Nav />
       <Route path="/characters" component = {Characters} />
       <Route path="/spells" component = {Spells} />
+      <Route path="/houses" component = {Houses} />
    
     </div>
  
