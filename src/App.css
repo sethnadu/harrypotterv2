@@ -1,8 +1,25 @@
+
+  @font-face {
+    font-family: 'harry Potter';
+    src: url('./Assets/dum1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 .App {
   text-align: center;
   background-image: linear-gradient( to bottom, #59958b, #802920);
   min-height: 900px;
   height: 100%;
+  font-family: 'harry Potter'
+}
+
+.Container {
+  display: flex;
+  margin: 10px auto;
+  flex-flow: row wrap;
+  justify-content: center;
+  font-family: 'harry Potter';
 }
 
 .App-logo {

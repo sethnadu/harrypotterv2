@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import { makeStyles } from "@material-ui/core/styles";
-
+import "../App.css"
 import { getCharacters } from "../Actions";
+import HarryPotterImage from "../Assets/HarryPotter1.jpg"
 
 import CharacterCard from "./characterCard.js";
 import OrganizationDropDown from "./Organizationcomponents/organizationdropdown.js"
@@ -12,6 +13,7 @@ import OrganizationDropDown from "./Organizationcomponents/organizationdropdown.
 const useStyles = makeStyles(() => ({
   container: {
     margin: "30px",
+    fontFamily: "harry potter"
   },
   searchContainer: {
     margin: "120px 20px 0 20px",
@@ -33,7 +35,14 @@ const useStyles = makeStyles(() => ({
     fontSize: "1.2rem",
     fontFamily: "cursive",
   },
-
+  title: {
+    fontSize: "2.4rem"
+  },
+  image: {
+    maxWidth: "700px",
+    width: "100%",
+    borderRadius: "10px",
+  }
 }));
 
 const Characters = props => {
@@ -67,7 +76,8 @@ const Characters = props => {
 
   return (
     <div className={classes.container}>
-      <h2>Harry Potter Characters</h2>
+      <h2 className={classes.title}>Harry Potter Characters</h2>
+      <img className={classes.image} src ={HarryPotterImage} alt ="Harry Potter Voldemort face off" />
       <form className={classes.form} onSubmit={handleSubmit}>
         <p>Search Character by Name</p>
         <input

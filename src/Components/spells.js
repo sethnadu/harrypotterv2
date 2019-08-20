@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { getSpells } from "../Actions";
 import SpellsCard from "./spellsCard.js";
 import SpellsDropDown from "./Organizationcomponents/spellsDropDown.js"
+import "../App.css"
 
 const useStyles = makeStyles(() => ({
     container: {
@@ -13,6 +14,7 @@ const useStyles = makeStyles(() => ({
     },
     searchContainer: {
       margin: "120px 20px 0 20px",
+      fontFamily: "harry potter"
     },
     form: {
       display: "flex",
@@ -31,6 +33,9 @@ const useStyles = makeStyles(() => ({
       fontSize: "1.2rem",
       fontFamily: "cursive",
     },
+    title: {
+        fontSize: "2.4rem"
+      }
   
   }));
   
@@ -52,7 +57,7 @@ const Spells = props => {
 
   return (
     <div className={classes.container}>
-      <h2>Spells</h2>
+      <h2 className={classes.title}>Spells</h2>
       <form className={classes.form}>
         <p>Search Spell by Name</p>
         <input

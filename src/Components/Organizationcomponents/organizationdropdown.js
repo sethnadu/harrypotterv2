@@ -5,6 +5,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import "../../App.css"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,12 +15,16 @@ const useStyles = makeStyles(theme => ({
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
+    fontFamily: "harry potter",
+    fontSize: "1.2rem"
   },
   options: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    margin: "auto"
+    margin: "auto",
+    fontFamily: "harry potter",
+    fontSize: "1.2rem"
   
   },
   singlePick: {

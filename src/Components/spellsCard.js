@@ -5,36 +5,32 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import '../App.css';
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
   },
-  container: {
-    display: "flex",
-    margin: "10px auto",
-    flexFlow: "row wrap",
-    justifyContent: "center",
-
-  },
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
-    fontFamily: "cursive",
+    fontFamily: "harry potter",
     fontSize: "1.2rem"
   },
   panel: {
     width: "400px"
   },
   text: {
-      textAlign: "left"
+      textAlign: "left",
+      fontFamily: "harry potter",
+      fontSize: "1.2rem"
   }
 }));
 
 const SpellsCard = ({spell}) => {
   const classes = useStyles();
   return (
-    <div className = {classes.container}>
+    <div className = "Container">
       <ExpansionPanel className = {classes.panel}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
