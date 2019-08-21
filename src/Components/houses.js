@@ -40,7 +40,7 @@ const useStyles = makeStyles(() => ({
       maxWidth: "160px",
       maxHeight: "160px",
       width: "100%",
-      margin: "10px",
+      margin: "5px",
       borderRadius: "10px",
       boxShadow: "5px 5px 10px "
   }
