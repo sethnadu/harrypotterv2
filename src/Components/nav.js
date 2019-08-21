@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   },
   buttonColors: {
       color: "#f8c20e",
-      fontFamily: "cursive",
+      fontFamily: "harry potter",
       fontWeight: "bold",
       
   },
