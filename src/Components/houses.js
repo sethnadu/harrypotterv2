@@ -37,8 +37,8 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
   },
   houseCrest: {
-      maxWidth: "180px",
-      maxHeight: "180px",
+      maxWidth: "160px",
+      maxHeight: "160px",
       width: "100%",
       margin: "10px",
       borderRadius: "10px",
