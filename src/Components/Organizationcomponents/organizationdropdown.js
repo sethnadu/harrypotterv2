@@ -1,11 +1,14 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import "../../App.css"
+import "../../App.css";
+
+
+import deathlyHollows from "../../Assets/images/deathlyhollows.png"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,8 +26,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     margin: "auto",
     fontFamily: "harry potter",
-    fontSize: "1.2rem"
-  
+    fontSize: "1.2rem",
   },
   singlePick: {
     pointer: "cursor",
@@ -40,9 +42,22 @@ const useStyles = makeStyles(theme => ({
     border: "2px solid #8d0901",
     color: "black",
     fontWeight: "bold",
-    fontFamily: "cursive",
-    
+    fontFamily: "harry potter",
   },
+  nonhumanSection: {
+    backgroundColor: "#f8c20e",
+    border: "2px solid #8d0901",
+    color: "black",
+    fontWeight: "bold",
+    fontFamily: "harry potter",
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  deathlyhollowsImage: {
+    width: "50px",
+    height: "50px",
+    marginRight: "10px"
+  }
 }));
 
 const OrganizationDropDown = props => {
@@ -57,11 +72,29 @@ const OrganizationDropDown = props => {
     setExpanded(isExpanded ? panel : true);
   };
 
-
-
   return (
     <div className={classes.root}>
-      <ExpansionPanel className={classes.section} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+       <div
+        className={classes.nonhumanSection}
+        onClick={() => props.handleSpecies("species")}
+      >
+        <p
+          className={classes.heading}
+          style={{
+            marginLeft: "25px",
+            cursor: "pointer",
+            fontWeight: "normal"
+          }}
+        >
+          Non-Humans
+        </p>
+        <img className = {classes.deathlyhollowsImage} src ={deathlyHollows} alt ="Deathly hollows symbol" />
+      </div>
+      <ExpansionPanel
+        className={classes.section}
+        expanded={expanded === "panel1"}
+        onChange={handleChange("panel1")}
+      >
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -69,27 +102,27 @@ const OrganizationDropDown = props => {
         >
           <Typography className={classes.heading}>Organization</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails onClick={handleChangeBack('panel1')} >
+        <ExpansionPanelDetails onClick={handleChangeBack("panel1")}>
           <Typography className={classes.options}>
-            <span 
+            <span
               className={classes.singlePick}
               onClick={() => props.handleOrganizaton("deathEaters")}
             >
               Death Eater's
             </span>{" "}
-            <span 
+            <span
               className={classes.singlePick}
               onClick={() => props.handleOrganizaton("ministryOfMagic")}
             >
               Ministry of the Magic
             </span>
-            <span 
+            <span
               className={classes.singlePick}
               onClick={() => props.handleOrganizaton("dumbledoresArmy")}
             >
               Dumbledore's Army
             </span>{" "}
-            <span 
+            <span
               className={classes.singlePick}
               onClick={() => props.handleOrganizaton("orderOfThePhoenix")}
             >
@@ -98,7 +131,11 @@ const OrganizationDropDown = props => {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel className={classes.section} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+      <ExpansionPanel
+        className={classes.section}
+        expanded={expanded === "panel2"}
+        onChange={handleChange("panel2")}
+      >
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -106,9 +143,9 @@ const OrganizationDropDown = props => {
         >
           <Typography className={classes.heading}>House</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails onClick={handleChangeBack('panel2')} >
-          <Typography className={classes.options} >
-            <span 
+        <ExpansionPanelDetails onClick={handleChangeBack("panel2")}>
+          <Typography className={classes.options}>
+            <span
               className={classes.singlePick}
               onClick={() => props.handleHouse("Gryffindor")}
             >
@@ -136,11 +173,6 @@ const OrganizationDropDown = props => {
         </ExpansionPanelDetails>
       </ExpansionPanel>
 
-      <ExpansionPanel onClick={() => props.handleSpecies("species")} className={classes.section} >
-          <Typography style ={{marginLeft: "25px", paddingTop: "10px", paddingBottom: "10px", cursor: "pointer"}} className={classes.heading} >Non-Humans</Typography>
-        </ExpansionPanel>
-
-      
     </div>
   );
 };

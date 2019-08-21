@@ -56,6 +56,7 @@ const useStyles = makeStyles(theme => ({
 
 const CharacterCard = ({ character }) => {
   const classes = useStyles();
+
   return (
     <div className={classes.container}>
       <ExpansionPanel className={classes.panel}>

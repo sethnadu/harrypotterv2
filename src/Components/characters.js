@@ -52,7 +52,7 @@ const Characters = props => {
   /////// Styling && Form State ///////////////////////////////
   const classes = useStyles();
   const [search, setSearch] = useState("");
-  console.log(props.characters)
+  
 
   /////////// Functions ////////////////////////////////////////
   const handleChange = event => {
