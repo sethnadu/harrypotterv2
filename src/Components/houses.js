@@ -5,10 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { getHouses } from "../Actions";
 import "../App.css";
 
-import GryffindorCrest from "../Assets/images/gryffindorcrest.png";
-import SlytherinCrest from "../Assets/images/slytherincrest.png";
-import HufflepuffCrest from "../Assets/images/hufflepuffcrest.png";
-import RavenclawCrest from "../Assets/images/ravenclaw.png";
+import HousesWallpaper from "../Assets/images/Houseswallpaper.jpg";
+
 
 import HousesCard from "./housesCard.js";
 
@@ -37,12 +35,10 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
   },
   houseCrest: {
-      maxWidth: "160px",
-      maxHeight: "160px",
+      maxWidth: "700px",
       width: "100%",
-      margin: "5px",
-      borderRadius: "10px",
-      boxShadow: "5px 5px 10px "
+      margin: "auto",
+   
   }
 }));
 
@@ -55,13 +51,7 @@ const Houses = ({ getHouses, isLoading, houses }) => {
   return (
     <div className={classes.container}>
       <h2 className={classes.title}>Houses</h2>
-      <div>
-        <img className={classes.houseCrest} src={GryffindorCrest} alt="Gryffindor Crest" />
-        <img className={classes.houseCrest} src={SlytherinCrest} alt="Slytherin Crest" />
-        <img className={classes.houseCrest} src={HufflepuffCrest} alt="Hufflepuff Crest" />
-        <img className={classes.houseCrest} src={RavenclawCrest} alt="Ravenclaw Crest" />
-      </div>
-
+      <img className={classes.houseCrest} src={HousesWallpaper} alt = "Hogwarts Houses" />
       {isLoading ? (
         <Loader type="BallTriangle" color="#e22121" height={100} width={100} />
       ) : (
