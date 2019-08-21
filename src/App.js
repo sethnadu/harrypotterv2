@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-
+import { makeStyles } from "@material-ui/core/styles";
 import { Route } from 'react-router-dom';
 
 import Characters from "./Components/characters.js";
@@ -10,8 +10,32 @@ import SortingHat from "./Components/sortingHat"
 import Nav from "./Components/nav"
 import './App.css';
 
-function App(props) {
 
+
+const useStyles = makeStyles(() => ({
+  copyrightDiv: {
+    bottom: "0",
+    position: "fixed",
+    display: 'flex',
+    flexDirection: 'row wrap',
+    margin: "40px auto 10px auto",
+    justifyContent: "center",
+    width: "100%",
+    opacity: ".6",
+    "&:hover": {
+      opacity: "1",
+    },
+    
+    
+  },
+  linkColor: {
+      color: "white",
+      textDecoration: "none",
+    }
+}));
+
+function App(props) {
+  const classes = useStyles();
 
   return (
 
@@ -21,7 +45,10 @@ function App(props) {
       <Route path="/characters" component = {Characters} />
       <Route path="/spells" component = {Spells} />
       <Route path="/houses" component = {Houses} />
-      
+      <footer className = {classes.copyrightDiv}>
+        <p >Api: <a className = {classes.linkColor} href="https://www.potterapi.com/">https://www.potterapi.com/</a></p>{" "}
+        <p>Created by: <a className = {classes.linkColor}  href="https://github.com/sethnadu">Seth Nadu</a></p>
+      </footer>
     </div>
  
   );

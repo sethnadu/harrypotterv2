@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import { connect } from "react-redux";
-import Loader from "react-loader-spinner";
 import { makeStyles } from "@material-ui/core/styles";
 import { getSortingHat } from "../Actions";
 import "../App.css"
