@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import { makeStyles } from "@material-ui/core/styles";
-import "../App.css"
+import "../App.css";
 import { getCharacters } from "../Actions";
-import HarryPotterImage from "../Assets/HarryPotter1.jpg"
+import HarryPotterImage from "../Assets/HarryPotter1.jpg";
+import Nav from "./nav";
 
 import CharacterCard from "./characterCard.js";
-import OrganizationDropDown from "./Organizationcomponents/organizationdropdown.js"
+import OrganizationDropDown from "./Organizationcomponents/organizationdropdown.js";
 
 /////////// Styling ////////////////////////////////////////
 const useStyles = makeStyles(() => ({
   container: {
     margin: "30px",
-    fontFamily: "harry potter"
+    fontFamily: "harry potter",
   },
   searchContainer: {
     margin: "120px 20px 0 20px",
@@ -36,7 +37,7 @@ const useStyles = makeStyles(() => ({
     fontFamily: "cursive",
   },
   title: {
-    fontSize: "2.4rem"
+    fontSize: "2.4rem",
   },
   image: {
     maxWidth: "700px",
@@ -44,15 +45,31 @@ const useStyles = makeStyles(() => ({
     borderRadius: "10px",
   },
   subtitle: {
-    fontSize: "1.8rem"
-  }
+    fontSize: "1.8rem",
+  },
+  copyrightDiv: {
+    bottom: "0",
+    position: "fixed",
+    display: "flex",
+    flexDirection: "row wrap",
+    margin: "40px auto 10px auto",
+    justifyContent: "center",
+    width: "100%",
+    opacity: ".6",
+    "&:hover": {
+      opacity: "1",
+    },
+  },
+  linkColor: {
+    color: "white",
+    textDecoration: "none",
+  },
 }));
 
 const Characters = props => {
   /////// Styling && Form State ///////////////////////////////
   const classes = useStyles();
   const [search, setSearch] = useState("");
-  
 
   /////////// Functions ////////////////////////////////////////
   const handleChange = event => {
@@ -71,147 +88,173 @@ const Characters = props => {
     props.getCharacters();
   };
 
-
   const handleHouse = house => {
     setSearch(house);
     props.getCharacters();
   };
 
-  const handleSpecies = (type) => {
+  const handleSpecies = type => {
     setSearch(type);
     props.getCharacters();
   };
 
-
-
   return (
-    <div className={classes.container}>
-      <h2 className={classes.title}>Harry Potter Characters</h2>
-      <img className={classes.image} src ={HarryPotterImage} alt ="Harry Potter Voldemort face off" />
-      <form className={classes.form} onSubmit={handleSubmit}>
-        <p className={classes.subtitle}>Search Character by Name</p>
-        <input
-          className={classes.textInput}
-          type="text"
-          onChange={handleChange}
-          placeholder="ex. Harry Potter"
+    <div className="App">
+      <Nav />
+      <div className={classes.container}>
+        <h2 className={classes.title}>Harry Potter Characters</h2>
+        <img
+          className={classes.image}
+          src={HarryPotterImage}
+          alt="Harry Potter Voldemort face off"
         />
-      </form>
-      <p>(Case Sensitive)</p>
-      <OrganizationDropDown handleSpecies ={handleSpecies} handleHouse = {handleHouse} handleOrganizaton = {handleOrganizaton} getCharacters = {props.getCharacters}/>
+        <form className={classes.form} onSubmit={handleSubmit}>
+          <p className={classes.subtitle}>Search Character by Name</p>
+          <input
+            className={classes.textInput}
+            type="text"
+            onChange={handleChange}
+            placeholder="ex. Harry Potter"
+          />
+        </form>
+        <p>(Case Sensitive)</p>
+        <OrganizationDropDown
+          handleSpecies={handleSpecies}
+          handleHouse={handleHouse}
+          handleOrganizaton={handleOrganizaton}
+          getCharacters={props.getCharacters}
+        />
 
-      {/* /////////// API LOADER //////////////////////////////////////// */}
-      {props.isLoading ? (
-        <Loader type="BallTriangle" color="#e22121" height={100} width={100} />
-      ) : (
-        ""
-      )}
+        {/* /////////// API LOADER //////////////////////////////////////// */}
+        {props.isLoading ? (
+          <Loader
+            type="BallTriangle"
+            color="#e22121"
+            height={100}
+            width={100}
+          />
+        ) : (
+          ""
+        )}
 
-      {/* /////////// API LOADER ENDED //////////////////////////////////////// */}
-      <div className={classes.searchContainer}>
-        {props.characters.map(character => {
-          return (
-            character.name.includes(`${search}`) && 
-            search !== "" && (
-              <CharacterCard key={character._id} character={character} />
-            )
-          );
-        })}
-      </div>
-      <div className={classes.searchContainer}>
-        {props.characters.map(character => {
-          return (
-            search === "dumbledoresArmy" &&
-            character.dumbledoresArmy === true && (
-              <CharacterCard key={character._id} character={character} />
-            )
-          );
-        })}
-      </div>
-      <div className={classes.searchContainer}>
-        {props.characters.map(character => {
-          return (
-            search === "deathEaters" &&
-            character.deathEater === true && (
-              <CharacterCard key={character._id} character={character} />
-            )
-          );
-        })}
-      </div>
-      <div className={classes.searchContainer}>
-        {props.characters.map(character => {
-          return (
-            search === "orderOfThePhoenix" &&
-            character.orderOfThePhoenix=== true && (
-              <CharacterCard key={character._id} character={character} />
-            )
-          );
-        })}
-      </div>
-      <div className={classes.searchContainer}>
-        {props.characters.map(character => {
-          return (
-            search === "ministryOfMagic" &&
-            character.ministryOfMagic === true && (
-              <CharacterCard key={character._id} character={character} />
-            )
-          );
-        })}
-      </div>
+        {/* /////////// API LOADER ENDED //////////////////////////////////////// */}
+        <div className={classes.searchContainer}>
+          {props.characters.map(character => {
+            return (
+              character.name.includes(`${search}`) &&
+              search !== "" && (
+                <CharacterCard key={character._id} character={character} />
+              )
+            );
+          })}
+        </div>
+        <div className={classes.searchContainer}>
+          {props.characters.map(character => {
+            return (
+              search === "dumbledoresArmy" &&
+              character.dumbledoresArmy === true && (
+                <CharacterCard key={character._id} character={character} />
+              )
+            );
+          })}
+        </div>
+        <div className={classes.searchContainer}>
+          {props.characters.map(character => {
+            return (
+              search === "deathEaters" &&
+              character.deathEater === true && (
+                <CharacterCard key={character._id} character={character} />
+              )
+            );
+          })}
+        </div>
+        <div className={classes.searchContainer}>
+          {props.characters.map(character => {
+            return (
+              search === "orderOfThePhoenix" &&
+              character.orderOfThePhoenix === true && (
+                <CharacterCard key={character._id} character={character} />
+              )
+            );
+          })}
+        </div>
+        <div className={classes.searchContainer}>
+          {props.characters.map(character => {
+            return (
+              search === "ministryOfMagic" &&
+              character.ministryOfMagic === true && (
+                <CharacterCard key={character._id} character={character} />
+              )
+            );
+          })}
+        </div>
 
+        <div className={classes.searchContainer}>
+          {props.characters.map(character => {
+            return (
+              search === "Gryffindor" &&
+              character.house === "Gryffindor" && (
+                <CharacterCard key={character._id} character={character} />
+              )
+            );
+          })}
+        </div>
+        <div className={classes.searchContainer}>
+          {props.characters.map(character => {
+            return (
+              search === "Slytherin" &&
+              character.house === "Slytherin" && (
+                <CharacterCard key={character._id} character={character} />
+              )
+            );
+          })}
+        </div>
+        <div className={classes.searchContainer}>
+          {props.characters.map(character => {
+            return (
+              search === "Hufflepuff" &&
+              character.house === "Hufflepuff" && (
+                <CharacterCard key={character._id} character={character} />
+              )
+            );
+          })}
+        </div>
+        <div className={classes.searchContainer}>
+          {props.characters.map(character => {
+            return (
+              search === "Ravenclaw" &&
+              character.house === "Ravenclaw" && (
+                <CharacterCard key={character._id} character={character} />
+              )
+            );
+          })}
+        </div>
 
-      <div className={classes.searchContainer}>
-        {props.characters.map(character => {
-          return (
-            search === "Gryffindor" &&
-            character.house === "Gryffindor" && (
-              <CharacterCard key={character._id} character={character} />
-            )
-          );
-        })}
+        <div className={classes.searchContainer}>
+          {props.characters.map(character => {
+            return (
+              search === "species" &&
+              character.species !== "human" && (
+                <CharacterCard key={character._id} character={character} />
+              )
+            );
+          })}
+        </div>
       </div>
-      <div className={classes.searchContainer}>
-        {props.characters.map(character => {
-          return (
-            search === "Slytherin" &&
-            character.house === "Slytherin" && (
-              <CharacterCard key={character._id} character={character} />
-            )
-          );
-        })}
-      </div>
-      <div className={classes.searchContainer}>
-        {props.characters.map(character => {
-          return (
-            search === "Hufflepuff" &&
-            character.house === "Hufflepuff" && (
-              <CharacterCard key={character._id} character={character} />
-            )
-          );
-        })}
-      </div>
-      <div className={classes.searchContainer}>
-        {props.characters.map(character => {
-          return (
-            search === "Ravenclaw" &&
-            character.house === "Ravenclaw" && (
-              <CharacterCard key={character._id} character={character} />
-            )
-          );
-        })}
-      </div>
-
-      <div className={classes.searchContainer}>
-        {props.characters.map(character => {
-          return (
-            search === "species" &&
-            character.species !== "human" && (
-              <CharacterCard key={character._id} character={character} />
-            )
-          );
-        })}
-      </div>
-
+      <footer className={classes.copyrightDiv}>
+        <p>
+          Api:{" "}
+          <a className={classes.linkColor} href="https://www.potterapi.com/">
+            https://www.potterapi.com/
+          </a>
+        </p>{" "}
+        <p>
+          Created by:{" "}
+          <a className={classes.linkColor} href="https://github.com/sethnadu">
+            Seth Nadu
+          </a>
+        </p>
+      </footer>
     </div>
   );
 };

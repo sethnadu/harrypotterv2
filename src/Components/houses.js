@@ -4,9 +4,8 @@ import Loader from "react-loader-spinner";
 import { makeStyles } from "@material-ui/core/styles";
 import { getHouses } from "../Actions";
 import "../App.css";
-
+import Nav from "./nav";
 import HousesWallpaper from "../Assets/images/Houseswallpaper.jpg";
-
 
 import HousesCard from "./housesCard.js";
 
@@ -35,13 +34,29 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
   },
   houseCrest: {
-      maxWidth: "700px",
-      width: "100%",
-      margin: "auto",
-      borderRadius: "10px",
-      boxShadow: "5px 5px 10px"
-   
-  }
+    maxWidth: "700px",
+    width: "100%",
+    margin: "auto",
+    borderRadius: "10px",
+    boxShadow: "5px 5px 10px",
+  },
+  copyrightDiv: {
+    bottom: "0",
+    position: "fixed",
+    display: "flex",
+    flexDirection: "row wrap",
+    margin: "40px auto 10px auto",
+    justifyContent: "center",
+    width: "100%",
+    opacity: ".6",
+    "&:hover": {
+      opacity: "1",
+    },
+  },
+  linkColor: {
+    color: "white",
+    textDecoration: "none",
+  },
 }));
 
 const Houses = ({ getHouses, isLoading, houses }) => {
@@ -51,19 +66,45 @@ const Houses = ({ getHouses, isLoading, houses }) => {
   }, [getHouses]);
 
   return (
-    <div className={classes.container}>
-      <h2 className={classes.title}>Houses</h2>
-      <img className={classes.houseCrest} src={HousesWallpaper} alt = "Hogwarts Houses" />
-      {isLoading ? (
-        <Loader type="BallTriangle" color="#e22121" height={100} width={100} />
-      ) : (
-        ""
-      )}
-      <div className={classes.section}>
-        {houses.map(house => {
-          return <HousesCard key={house._id} house={house} />;
-        })}
+    <div className="App">
+      <Nav />
+      <div className={classes.container}>
+        <h2 className={classes.title}>Houses</h2>
+        <img
+          className={classes.houseCrest}
+          src={HousesWallpaper}
+          alt="Hogwarts Houses"
+        />
+        {isLoading ? (
+          <Loader
+            type="BallTriangle"
+            color="#e22121"
+            height={100}
+            width={100}
+          />
+        ) : (
+          ""
+        )}
+        <div className={classes.section}>
+          {houses.map(house => {
+            return <HousesCard key={house._id} house={house} />;
+          })}
+        </div>
       </div>
+      <footer className={classes.copyrightDiv}>
+        <p>
+          Api:{" "}
+          <a className={classes.linkColor} href="https://www.potterapi.com/">
+            https://www.potterapi.com/
+          </a>
+        </p>{" "}
+        <p>
+          Created by:{" "}
+          <a className={classes.linkColor} href="https://github.com/sethnadu">
+            Seth Nadu
+          </a>
+        </p>
+      </footer>
     </div>
   );
 };
