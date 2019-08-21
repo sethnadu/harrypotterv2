@@ -5,13 +5,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import { getSortingHat } from "../Actions";
 import "../App.css"
 
-import Gryffindorbanner from "../Assets/images/gryffindorbanner.jpeg"
+import Gryffindorbanner from "../Assets/images/gryffindorgif.gif"
 import GryffindorTop from "../Assets/images/gtop.png"
-import Slytherinbanner from "../Assets/images/slytherinbanner.png"
+import Slytherinbanner from "../Assets/images/slytheringif.gif"
 import SlytherinTop from "../Assets/images/stop.png"
-import Hufflepuffbanner from "../Assets/images/hufflepuffbanner.jpg"
+import Hufflepuffbanner from "../Assets/images/hufflepuffgif.gif"
 import HufflepuffTop from "../Assets/images/htop.png"
-import Ravenclawbanner from "../Assets/images/ravenclawbanner.jpg"
+import Ravenclawbanner from "../Assets/images/ravenclaw gif.gif"
 import RavenclawTop from "../Assets/images/rtop.png"
 import GreatHall from "../Assets/images/Greathall.jpg"
 import buttonImage from "../Assets/images/buttonImage.jpg"
