@@ -9,7 +9,7 @@
 .App {
   text-align: center;
   background-image: linear-gradient( to bottom, #59958b, #802920);
-  min-height: 900px;
+  min-height: 1000px;
   height: 100%;
   font-family: 'harry Potter'
 }

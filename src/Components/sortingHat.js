@@ -71,7 +71,8 @@ const useStyles = makeStyles(() => ({
         fontWeight: "bolder",
         fontFamily: "harry potter",
         border: "2px solid #3d221a",
-        borderRadius: "10px"
+        borderRadius: "10px",
+        marginBottom: "30px"
     },
     text: {
         margin: "10px"
