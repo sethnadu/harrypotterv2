@@ -40,7 +40,8 @@ const useStyles = makeStyles(theme => ({
   },
   organ4: {
     color: "#8c1000"
-  }
+  },
+  
 }));
 
 const CharacterCard = ({character}) => {
@@ -63,7 +64,7 @@ const CharacterCard = ({character}) => {
             {character.role ? (<br></br>): (null)}
             <span>{character.school ? ("School: " + character.school) : (null)}</span>
             {character.school ? (<br></br>): (null)}
-            <span>{character.house ? ("House: "  + character.house) : (null)}</span>
+            <span style = {(character.house === "Gryffindor" && ({"color":"#7c1621"})) || (character.house === "Slytherin" && ({"color":"#2b7d39"})) || (character.house === "Ravenclaw" && ({"color":"#185792"})) || (character.house === "Hufflepuff" && ({"color":"#ded437"}))} >{character.house ? ("House: "  + character.house) : (null)}</span>
             {character.house ? (<br></br>): (null)}
             <span>{character.bloodStatus ? ("Blood Status: " + character.bloodStatus) : (null)}</span>
             {character.bloodStatus ? (<br></br>): (null)}

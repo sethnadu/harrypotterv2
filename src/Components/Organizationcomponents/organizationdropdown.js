@@ -47,10 +47,21 @@ const useStyles = makeStyles(theme => ({
 const OrganizationDropDown = props => {
   console.log(props);
   const classes = useStyles();
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = panel => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+  const handleChangeBack = () => {
+    setExpanded(true);
+  };
+
+
 
   return (
     <div className={classes.root}>
-      <ExpansionPanel className={classes.section}>
+      <ExpansionPanel className={classes.section} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -58,27 +69,27 @@ const OrganizationDropDown = props => {
         >
           <Typography className={classes.heading}>Organization</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
+        <ExpansionPanelDetails onClick={() => handleChangeBack('panel1')} expanded={expanded === 'panel1'}>
           <Typography className={classes.options}>
-            <span
+            <span 
               className={classes.singlePick}
               onClick={() => props.handleOrganizaton("deathEaters")}
             >
               Death Eater's
             </span>{" "}
-            <span
+            <span 
               className={classes.singlePick}
               onClick={() => props.handleOrganizaton("ministryOfMagic")}
             >
               Ministry of the Magic
             </span>
-            <span
+            <span 
               className={classes.singlePick}
               onClick={() => props.handleOrganizaton("dumbledoresArmy")}
             >
               Dumbledore's Army
             </span>{" "}
-            <span
+            <span 
               className={classes.singlePick}
               onClick={() => props.handleOrganizaton("orderOfThePhoenix")}
             >
@@ -87,7 +98,7 @@ const OrganizationDropDown = props => {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel className={classes.section}>
+      <ExpansionPanel className={classes.section} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -95,9 +106,9 @@ const OrganizationDropDown = props => {
         >
           <Typography className={classes.heading}>House</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography className={classes.options}>
-            <span
+        <ExpansionPanelDetails onClick={() => handleChangeBack('panel2')} expanded={expanded === 'panel2'}>
+          <Typography className={classes.options} >
+            <span 
               className={classes.singlePick}
               onClick={() => props.handleHouse("Gryffindor")}
             >
