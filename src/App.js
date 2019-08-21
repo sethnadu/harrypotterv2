@@ -31,13 +31,13 @@ const useStyles = makeStyles(() => ({
       transform: "translate(-50%, 20%)",
       maxWidth: "720px",
       width: "100%",
-      height: "576px"
+      height: "576px",
+      marginTop: "-80px"
       
     },
     button: {
-        marginTop: "200px",
         width: "200px",
-        margin: "auto",
+        margin: " 50px auto 0 auto",
         fontFamily: "harry potter",
         fontSize: "1.2rem",
         backgroundImage: `url(${footprints})`,
@@ -52,7 +52,7 @@ function Enterpage(props) {
   const classes = useStyles();
 
   return (
-    <>
+    <div className={classes.container} >
     <div >
       <Route path ="/sorting" component = {SortingHat} />
       <Route path="/characters" component = {Characters} />
@@ -60,15 +60,12 @@ function Enterpage(props) {
       <Route path="/houses" component = {Houses} />
       
     </div>
-    <div className={classes.container}>
-      <div >
-      <img className={classes.imageMap} src = {Map} alt ="Welcome site" />
-     </div>
-    
      <button className = {classes.button}><Link style = {{textDecoration: "none", color: "black"}} to ="/sorting">I solemnly swear that I am up to no good{" "}(ENTER)</Link></button>
+    <div className={classes.container}>
+      <img className={classes.imageMap} src = {Map} alt ="Welcome site" />
     </div>
 
-    </>
+    </div>
  
   );
 }
