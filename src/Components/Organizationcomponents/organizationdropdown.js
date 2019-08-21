@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
@@ -47,9 +47,10 @@ const useStyles = makeStyles(theme => ({
 const OrganizationDropDown = props => {
   console.log(props);
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const handleChange = panel => (event, isExpanded) => {
+    console.log(isExpanded)
     setExpanded(isExpanded ? panel : false);
   };
 
