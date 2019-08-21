@@ -38,6 +38,8 @@ const useStyles = makeStyles(() => ({
       maxWidth: "700px",
       width: "100%",
       margin: "auto",
+      borderRadius: "10px",
+      boxShadow: "5px 5px 10px"
    
   }
 }));
