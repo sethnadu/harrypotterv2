@@ -3,14 +3,14 @@ import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { Route, Link } from 'react-router-dom';
 
-import Map from "./Assets/images/mapgif.gif"
+import Map from "../Assets/images/mapgif.gif"
 
-import footprints from "./Assets/images/footprints.gif"
-import Characters from "./Components/characters.js";
-import Spells from "./Components/spells.js"
-import Houses from "./Components/houses.js"
-import SortingHat from "./Components/sortingHat"
-import "./App.css"
+import footprints from "../Assets/images/footprints.gif"
+import Characters from "../Components/characters.js";
+import Spells from "../Components/spells.js"
+import Houses from "../Components/houses.js"
+import SortingHat from "../Components/sortingHat"
+import "../App.css"
 
 
 
@@ -48,7 +48,7 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-function App(props) {
+function Enter(props) {
   const classes = useStyles();
 
   return (
@@ -72,5 +72,4 @@ function App(props) {
 
 
 
-export default App;
-
+export default Enter;
