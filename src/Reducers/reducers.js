@@ -28,6 +28,7 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch(action.type) {
+        
         case FETCH_CHARACTER_START:
             return {
                 ...state,

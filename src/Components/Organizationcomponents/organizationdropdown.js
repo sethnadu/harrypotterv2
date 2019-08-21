@@ -14,7 +14,8 @@ const useStyles = makeStyles(theme => ({
   },
   heading: {
     fontFamily: "harry potter",
-    fontSize: "1.2rem"
+    fontSize: "1.2rem",
+    textAlign: "left",
   },
   options: {
     display: "flex",
@@ -45,17 +46,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const OrganizationDropDown = props => {
-  console.log(props);
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
 
   const handleChange = panel => (event, isExpanded) => {
-    console.log(isExpanded)
     setExpanded(isExpanded ? panel : false);
   };
 
-  const handleChangeBack = () => {
-    setExpanded(true);
+  const handleChangeBack = panel => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : true);
   };
 
 
@@ -70,7 +69,7 @@ const OrganizationDropDown = props => {
         >
           <Typography className={classes.heading}>Organization</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails onClick={() => handleChangeBack('panel1')} expanded={expanded === 'panel1'}>
+        <ExpansionPanelDetails onClick={handleChangeBack('panel1')} >
           <Typography className={classes.options}>
             <span 
               className={classes.singlePick}
@@ -107,7 +106,7 @@ const OrganizationDropDown = props => {
         >
           <Typography className={classes.heading}>House</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails onClick={() => handleChangeBack('panel2')} expanded={expanded === 'panel2'}>
+        <ExpansionPanelDetails onClick={handleChangeBack('panel2')} >
           <Typography className={classes.options} >
             <span 
               className={classes.singlePick}
@@ -136,6 +135,12 @@ const OrganizationDropDown = props => {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+
+      <ExpansionPanel onClick={() => props.handleSpecies("species")} className={classes.section} >
+          <Typography style ={{marginLeft: "25px", paddingTop: "10px", paddingBottom: "10px", cursor: "pointer"}} className={classes.heading} >Non-Humans</Typography>
+        </ExpansionPanel>
+
+      
     </div>
   );
 };

@@ -14,7 +14,6 @@ import SlytherinCrest from "../Assets/images/slytherincrest.png";
 import HufflepuffCrest from "../Assets/images/hufflepuffcrest.png";
 import RavenclawCrest from "../Assets/images/ravenclaw.png";
 
-import HogwartsCastle from "../Assets/hogwartscastle.jpg";
 import Logo from "../Assets/logo.jpg";
 
 const useStyles = makeStyles(theme => ({

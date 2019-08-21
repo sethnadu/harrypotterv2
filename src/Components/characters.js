@@ -52,6 +52,7 @@ const Characters = props => {
   /////// Styling && Form State ///////////////////////////////
   const classes = useStyles();
   const [search, setSearch] = useState("");
+  console.log(props.characters)
 
   /////////// Functions ////////////////////////////////////////
   const handleChange = event => {
@@ -76,6 +77,12 @@ const Characters = props => {
     props.getCharacters();
   };
 
+  const handleSpecies = (type) => {
+    setSearch(type);
+    props.getCharacters();
+  };
+
+
 
   return (
     <div className={classes.container}>
@@ -91,7 +98,7 @@ const Characters = props => {
         />
       </form>
       <p>(Case Sensitive)</p>
-      <OrganizationDropDown handleHouse = {handleHouse} handleOrganizaton = {handleOrganizaton} getCharacters = {props.getCharacters}/>
+      <OrganizationDropDown handleSpecies ={handleSpecies} handleHouse = {handleHouse} handleOrganizaton = {handleOrganizaton} getCharacters = {props.getCharacters}/>
 
       {/* /////////// API LOADER //////////////////////////////////////// */}
       {props.isLoading ? (
@@ -193,6 +200,18 @@ const Characters = props => {
           );
         })}
       </div>
+
+      <div className={classes.searchContainer}>
+        {props.characters.map(character => {
+          return (
+            search === "species" &&
+            character.species !== "human" && (
+              <CharacterCard key={character._id} character={character} />
+            )
+          );
+        })}
+      </div>
+
     </div>
   );
 };
