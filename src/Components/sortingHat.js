@@ -72,7 +72,9 @@ const useStyles = makeStyles(() => ({
         fontFamily: "harry potter",
         border: "2px solid #3d221a",
         borderRadius: "10px"
-        
+    },
+    text: {
+        margin: "10px"
     }
 
 }));
@@ -87,7 +89,7 @@ const SortingHat = ({sortingHat, isLoading, getSortingHat}) => {
                 <>
                 <h2 className = {classes.title} >Welcome to Hogwarts</h2>
                 <img className = {classes.GreatHallImage} src = {GreatHall} alt ="Welcom to Hogwarts" />
-                <h2>Click the button below to decide what house to join!</h2>
+                <h2 className = {classes.text}>Click the button below to decide what house to join!</h2>
                
                 </>
             )}
