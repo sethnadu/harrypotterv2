@@ -49,7 +49,7 @@ function Nav() {
             {/* <MenuIcon /> */}
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            <img className = {classes.logo} alt = "Harry Potter Logo" src={HarryPotterLogo} />
+            <Link to ="/"><img className = {classes.logo} alt = "Harry Potter Logo" src={HarryPotterLogo} /></Link>
           </Typography>
           <Button color="inherit"  className={classes.buttonColors}><Link style = {{textDecoration: "none", color: "#f8c20e"}} to ="/spells">Spells</Link></Button>
           <Button color="inherit"  className={classes.buttonColors}><Link style = {{textDecoration: "none", color: "#f8c20e"}}  to ="/houses">Houses</Link></Button>
