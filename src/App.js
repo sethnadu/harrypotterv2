@@ -17,7 +17,7 @@ import "./App.css"
 
 const useStyles = makeStyles(() => ({
     container: {
-      minHeight: "100vh",
+      minHeight: "900px",
       height: "100%",
       background: "black",
       display: "flex",
